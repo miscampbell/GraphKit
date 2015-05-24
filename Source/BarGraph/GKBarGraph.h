@@ -54,6 +54,10 @@
  *  The Custom Font Size will be used if set otherwise the graph will default to the value 13
  */
 @property (nonatomic, assign) CGFloat customFontSize;
+/**
+ *  The Custom Label Width will be used if set otherwise the graph will default to the kDefaultLabelWidth
+ */
+@property (nonatomic, assign) CGFloat customLabelWidth;
 
 @property (nonatomic, strong) UIView *underlineBar;
 

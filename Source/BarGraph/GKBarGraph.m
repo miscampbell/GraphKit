@@ -172,7 +172,7 @@ static CGFloat kDefaultAnimationDuration = 2.0;
     id items = [NSMutableArray arrayWithCapacity:count];
     for (NSInteger idx = 0; idx < count; idx++) {
         
-        CGRect frame = CGRectMake(0, 0, kDefaultLabelWidth, kDefaultLabelHeight);
+        CGRect frame = CGRectMake(0, 0, [self labelWidth], kDefaultLabelHeight);
         UILabel *item = [[UILabel alloc] initWithFrame:frame];
         item.textAlignment = NSTextAlignmentCenter;
         
@@ -204,7 +204,7 @@ static CGFloat kDefaultAnimationDuration = 2.0;
     __block NSInteger idx = 0;
     [self.bars mk_each:^(GKBar *bar) {
         
-        CGFloat labelWidth = kDefaultLabelWidth;
+        CGFloat labelWidth = [self labelWidth];
         CGFloat labelHeight = kDefaultLabelHeight;
         CGFloat startX = bar.x - ((labelWidth - self.barWidth) / 2);
         CGFloat startY = (self.height - labelHeight);
@@ -278,6 +278,18 @@ static CGFloat kDefaultAnimationDuration = 2.0;
     [self.bars mk_each:^(GKBar *item) {
         [item reset];
     }];
+}
+
+- (CGFloat)labelWidth
+{
+    if (self.customLabelWidth)
+    {
+        return self.customLabelWidth;
+    }
+    else
+    {
+        return kDefaultLabelWidth;
+    }
 }
 
 @end
